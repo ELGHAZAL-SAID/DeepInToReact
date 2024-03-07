@@ -1,7 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import PizzaData from "../public/data"
 import "./index.css"
+import pizzaData from "../public/data";
 
 function App() {
     return (
@@ -24,52 +25,57 @@ const Header = () => {
 }
 
 const Menu = () => {
+    const pizzas = pizzaData;
     return (
         <main className="menu">
             <h2>Our Menu</h2>
-            <Pizza
-            Pizzaname = "pizza Spinaci"
-            engredians = "Tomato, mozarella, spinach, and ricotta cheese"
-            photoName = "pizzas/spinaci.jpg"
-            price = {12}
-            />
+            <ul className="pizzas">
+                {pizzas.map((pizza) => (
+                    <Pizza pizzaObj={pizza} key={pizza.name} />
+                ))}
+            </ul>
         </main>
     );
 }
 
 const Footer = () => {
     const hour = new Date().getHours();
+    const isOpen = hour >= 9 && hour <= 23;
+    const openHour = 9
+    const closeHour = "00"
     return (
         <>
             <footer className="footer" >
-                {hour}. we are currently Open!
-            </footer>
+                {isOpen ? (
+                    <Order closeHour={closeHour}/>
+                ) : <p>We are closed for the moment, we will be open at 0{openHour}:00</p>}
+            </footer >
         </>
     );
 }
 
-
-const Pizza = (props) => {
+const Order = (props) => {
     return (
-        PizzaData.map((pizza) =>
-            <div className="pizza">
-                <div className="pizzas" key={PizzaData.indexOf(pizza)}>
-                    <div>
-                        <img src={pizza.photoName} alt="" />
-                    </div>
-                    <h3>{pizza.name}</h3>
-                    <p>{pizza.ingredients}</p>
-                    <span>{pizza.price}</span>
-                </div>
-            </div>
-        )
+        <div className="order">
+            <p>
+                we're open until {props.closeHour}:00. Come visit us or order online.
+            </p>
+            <button className="btn">Order</button>
+        </div>
+    )
+}
 
-    //     <div className="pizzas">
-    //         <img src={props.photoName} alt="" />
-    //         <h3>{props.Pizzaname}</h3>
-    //         <p>{props.engredians}</p>
-    //         <span>{props.price}</span>
-    //     </div>
+
+const Pizza = ({pizzaObj}) => {
+    return (
+        <li className="pizza">
+            <img src={pizzaObj.photoName} alt="" />
+            <div>
+                <h3>{pizzaObj.name}</h3>
+                <p>{pizzaObj.ingredients}</p>
+                <span>{pizzaObj.price}</span>
+            </div>
+        </li>
     );
 }
 
