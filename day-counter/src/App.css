@@ -1,0 +1,44 @@
+.day-counter {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.steps,
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.plus,
+.minus {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #7950f2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.plus:hover,
+.minus:hover {
+  background-color: #6b40d8;
+}
+
+.count,
+.step {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 20px;
+}
+
+.day-description {
+  font-size: 18px;
+  color: #666;
+}

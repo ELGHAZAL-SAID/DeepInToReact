@@ -1,26 +1,20 @@
 import { useState } from "react";
 import Steps from "./Conponents/Steps";
 
-
 function App() {
-  const [view, setView] = useState(true)
-
+  const [view, setView] = useState(true);
 
   const viewHandler = () => {
-        setView(!view)
-  }
+    setView((v) => !v);
+  };
 
   return (
     <>
-      {view ? (
-        <Steps />
-      ) : (
-        <span className="close" onClick={viewHandler()}>
-          x
-        </span>
-      )}
+      <button className="close" onClick={viewHandler}>
+        &times;
+      </button>
+      {view && <Steps />}
     </>
   );
 }
-
 export default App;

@@ -45,12 +45,12 @@ body {
 
 .numbers .active {
   background-color: #7950f2;
-  color: #fff;
+  color: #ffffff;
 }
 
 .numbers .passive{
-  background-color: #d5d5d5;
-  color: #404749;
+  background-color: #1a191951;
+  color: #ffffff;
 }
 
 .message {
