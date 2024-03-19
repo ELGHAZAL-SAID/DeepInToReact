@@ -1,12 +1,17 @@
-import { useState } from "react";
 import Logo from "./Components/Logo";
+import PackingList from "./Components/PackingList";
+import Stats from "./Components/Stats";
 import Form from "./Components/Form";
 
 function App() {
   return (
     <>
-      <Logo />
-      <Form />
+      <div className="app">
+        <Logo />
+        <Form />
+        <PackingList />
+        <Stats />
+      </div>
     </>
   );
 }
