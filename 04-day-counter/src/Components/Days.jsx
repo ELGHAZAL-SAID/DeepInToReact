@@ -55,9 +55,7 @@ const Days = () => {
       </div>
       <p className="day-description">
         {count
-          ? `${
-              count.toString() + " dyas from to day was " + dateToPrint(count)
-            }`
+          ? `${count.toString() + " dyas from to day is " + dateToPrint(count)}`
           : `${"today is " + dateToPrint(count)}`}
       </p>
     </div>
